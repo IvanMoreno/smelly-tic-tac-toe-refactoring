@@ -41,7 +41,7 @@ namespace TicTacToe {
         // Smell: Duplicated code
         public char Winner() {
             //if the positions in first row are taken
-            var areFirstRowPositionsTaken = AreFirstRowPositionsTaken();
+            var areFirstRowPositionsTaken = AreRowPositionsTaken(0);
             if (areFirstRowPositionsTaken) {
                 //if first row is full with same symbol
                 var isRowTakenBySameSymbol = _board.TileAt(0, 0).Symbol ==
@@ -82,10 +82,10 @@ namespace TicTacToe {
             return ' ';
         }
 
-        bool AreFirstRowPositionsTaken() {
-            return _board.TileAt(0, 0).Symbol != ' ' &&
-                   _board.TileAt(0, 1).Symbol != ' ' &&
-                   _board.TileAt(0, 2).Symbol != ' ';
+        bool AreRowPositionsTaken(int row) {
+            return _board.TileAt(row, 0).Symbol != ' ' &&
+                   _board.TileAt(row, 1).Symbol != ' ' &&
+                   _board.TileAt(row, 2).Symbol != ' ';
         }
     }
 }
