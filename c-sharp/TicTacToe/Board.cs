@@ -44,6 +44,12 @@ public class Board
         _plays.Single(tile => tile.X == x && tile.Y == y).Symbol = symbol;
     }
 
+    public IEnumerable<TileGroup> AllTileGroups() {
+        yield return new TileGroup([TileAt(0, 0), TileAt(0, 1), TileAt(0, 2)]);
+        yield return new TileGroup([TileAt(1, 0), TileAt(1, 1), TileAt(1, 2)]);
+        yield return new TileGroup([TileAt(2, 0), TileAt(2, 1), TileAt(2, 2)]);
+    }
+
     // Smell: Feature envy
     public bool AreRowPositionsTaken(int row) {
         return TileAt(row, 0).Symbol != ' ' &&
