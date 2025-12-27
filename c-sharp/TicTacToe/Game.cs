@@ -35,6 +35,7 @@ namespace TicTacToe {
         // Smell: Feature Envy
         // Smell: Duplicated code
         public char Winner() {
+            return WinnerNew();
             if (_board.AreRowPositionsTaken(0) && _board.IsRowTakenBySameSymbol(0)) {
                 return _board.TileAt(0, 0).Symbol;
             }
