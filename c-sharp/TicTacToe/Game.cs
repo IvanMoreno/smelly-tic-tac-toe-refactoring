@@ -32,7 +32,7 @@ namespace TicTacToe {
             _board.AddTileAt(symbol, x, y);
         }
 
-        // Smell: Feature Envy
+        // Smell: Message chain
         public char Winner() {
             foreach (var tileGroup in _board.AllTileGroups()) {
                 if (tileGroup.IsTakenBySameSymbol) {
