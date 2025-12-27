@@ -47,9 +47,10 @@ namespace TicTacToe
         // Smell: Duplicated code
         public char Winner()
         {   //if the positions in first row are taken
-            if(_board.TileAt(0, 0).Symbol != ' ' &&
-               _board.TileAt(0, 1).Symbol != ' ' &&
-               _board.TileAt(0, 2).Symbol != ' ')
+            var areFirstRowPositionsTaken = _board.TileAt(0, 0).Symbol != ' ' &&
+                    _board.TileAt(0, 1).Symbol != ' ' &&
+                    _board.TileAt(0, 2).Symbol != ' ';
+            if(areFirstRowPositionsTaken)
                {
                     //if first row is full with same symbol
                     if (_board.TileAt(0, 0).Symbol == 
