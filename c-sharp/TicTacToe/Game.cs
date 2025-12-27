@@ -36,19 +36,6 @@ namespace TicTacToe {
         // Smell: Duplicated code
         public char Winner() {
             return WinnerNew();
-            if (_board.AreRowPositionsTaken(0) && _board.IsRowTakenBySameSymbol(0)) {
-                return _board.TileAt(0, 0).Symbol;
-            }
-            
-            if (_board.AreRowPositionsTaken(1) && _board.IsRowTakenBySameSymbol(1)) {
-                return _board.TileAt(1, 0).Symbol;
-            }
-            
-            if (_board.AreRowPositionsTaken(2) && _board.IsRowTakenBySameSymbol(2)) {
-                return _board.TileAt(2, 0).Symbol;
-            }
-
-            return ' ';
         }
 
         public char WinnerNew() {
