@@ -49,19 +49,4 @@ public class Board
         yield return new TileGroup([TileAt(1, 0), TileAt(1, 1), TileAt(1, 2)]);
         yield return new TileGroup([TileAt(2, 0), TileAt(2, 1), TileAt(2, 2)]);
     }
-
-    // Smell: Feature envy
-    public bool AreRowPositionsTaken(int row) {
-        return TileAt(row, 0).Symbol != ' ' &&
-               TileAt(row, 1).Symbol != ' ' &&
-               TileAt(row, 2).Symbol != ' ';
-    }
-
-    // Smell: Feature envy
-    public bool IsRowTakenBySameSymbol(int row) {
-        return TileAt(row, 0).Symbol ==
-               TileAt(row, 1).Symbol &&
-               TileAt(row, 2).Symbol ==
-               TileAt(row, 1).Symbol;
-    }
 }
