@@ -40,9 +40,7 @@ namespace TicTacToe {
         // Smell: Long Method
         // Smell: Duplicated code
         public char Winner() {
-            //if the positions in first row are taken
             if (_board.AreRowPositionsTaken(0) && _board.IsRowTakenBySameSymbol(0)) {
-                //if first row is full with same symbol
                 return _board.TileAt(0, 0).Symbol;
             }
 
