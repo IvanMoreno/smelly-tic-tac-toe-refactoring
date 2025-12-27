@@ -37,4 +37,12 @@ public class Board
                TileAt(row, 1).Symbol != ' ' &&
                TileAt(row, 2).Symbol != ' ';
     }
+
+    // Smell: Feature envy
+    public bool IsRowTakenBySameSymbol(int row) {
+        return TileAt(row, 0).Symbol ==
+               TileAt(row, 1).Symbol &&
+               TileAt(row, 2).Symbol ==
+               TileAt(row, 1).Symbol;
+    }
 }
