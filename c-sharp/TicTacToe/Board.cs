@@ -31,6 +31,7 @@ public class Board
         _plays.Single(tile => tile.X == x && tile.Y == y).Symbol = symbol;
     }
 
+    // Smell: Feature envy
     public bool AreRowPositionsTaken(int row) {
         return TileAt(row, 0).Symbol != ' ' &&
                TileAt(row, 1).Symbol != ' ' &&
