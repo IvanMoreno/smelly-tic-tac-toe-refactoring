@@ -6,8 +6,8 @@ namespace TicTacToe;
 public class TileGroup {
     readonly List<Tile> tiles;
 
-    public bool IsFull => tiles.All(tile => tile.Symbol != ' ');
-    public bool IsTakenBySameSymbol => tiles[0].Symbol == tiles[1].Symbol &&  tiles[1].Symbol == tiles[2].Symbol;
+    public bool IsTakenBySameSymbol => IsFull && tiles[0].Symbol == tiles[1].Symbol &&  tiles[1].Symbol == tiles[2].Symbol;
+    bool IsFull => tiles.All(tile => tile.Symbol != ' ');
     
     public TileGroup(List<Tile> tiles) {
         this.tiles = tiles;

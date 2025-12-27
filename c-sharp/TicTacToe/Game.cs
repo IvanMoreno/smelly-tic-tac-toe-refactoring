@@ -33,11 +33,10 @@ namespace TicTacToe {
         }
 
         // Smell: Feature Envy
-        // Smell: Duplicated code
         public char Winner() {
             var tileGroups = _board.AllTileGroups();
             foreach (var tileGroup in tileGroups) {
-                if (tileGroup.IsFull && tileGroup.IsTakenBySameSymbol) {
+                if (tileGroup.IsTakenBySameSymbol) {
                     return tileGroup.SymbolAt(0);
                 }
             }
