@@ -1,51 +1,9 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
 
 // Global Smell: Shotgun surgery around coordinates (x and y) manipulation, same for symbol.
 
 namespace TicTacToe
 {
-    // Smell: Data Class
-    public class Tile
-    {
-        // Smell: Data Clump (x and y)
-        public int X {get; set;}
-        public int Y {get; set;}
-        
-        // Smell: Primitive obsession
-        public char Symbol {get; set;}
-    }
-
-    // Smell: Divergent change (creates the board and also operates on it)
-    public class Board
-    {
-       private List<Tile> _plays = new List<Tile>();
-       
-        public Board()
-        {
-            for (int i = 0; i < 3; i++) // MSmell: agic number.
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    _plays.Add(new Tile{ X = i, Y = j, Symbol = ' '});
-                }  
-            }       
-        } 
-        
-        // Smell: Data clump
-       public Tile TileAt(int x, int y)
-       {
-           return _plays.Single(tile => tile.X == x && tile.Y == y);
-       }
-
-       // Smell: Data clump and primitive obsession
-       public void AddTileAt(char symbol, int x, int y)
-       {
-           _plays.Single(tile => tile.X == x && tile.Y == y).Symbol = symbol;
-       }
-    }
-
     // Smell: Large Class.
     public class Game
     {
