@@ -42,13 +42,6 @@ namespace TicTacToe
        // Smell: Data clump and primitive obsession
        public void AddTileAt(char symbol, int x, int y)
        {
-           var newTile = new Tile // Smell: Dead code.
-           {
-               X = x,
-               Y = y,
-               Symbol = symbol
-           };
-
            _plays.Single(tile => tile.X == x && tile.Y == y).Symbol = symbol;
        }
     }
