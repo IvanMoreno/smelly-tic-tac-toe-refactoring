@@ -41,13 +41,9 @@ namespace TicTacToe {
         // Smell: Duplicated code
         public char Winner() {
             //if the positions in first row are taken
-            var areFirstRowPositionsTaken = _board.AreRowPositionsTaken(0);
-            if (areFirstRowPositionsTaken) {
+            if (_board.AreRowPositionsTaken(0) && _board.IsRowTakenBySameSymbol(0)) {
                 //if first row is full with same symbol
-                var isRowTakenBySameSymbol = _board.IsRowTakenBySameSymbol(0);
-                if (isRowTakenBySameSymbol) {
-                    return _board.TileAt(0, 0).Symbol;
-                }
+                return _board.TileAt(0, 0).Symbol;
             }
 
             //if the positions in first row are taken
