@@ -32,12 +32,7 @@ namespace TicTacToe {
             _board.AddTileAt(symbol, x, y);
         }
 
-        // Smell: Commented code
-        // Smell: Complicated boolean expression
         // Smell: Feature Envy
-        // Smell: Complicated boolean expression
-        // Smell: Message chain
-        // Smell: Long Method
         // Smell: Duplicated code
         public char Winner() {
             if (_board.AreRowPositionsTaken(0) && _board.IsRowTakenBySameSymbol(0)) {
