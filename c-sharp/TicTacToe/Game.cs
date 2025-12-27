@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 // Global Smell: Shotgun surgery around coordinates (x and y) manipulation, same for symbol.
 
