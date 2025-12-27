@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 // Global Smell: Shotgun surgery around coordinates (x and y) manipulation, same for symbol.
 
@@ -34,8 +35,7 @@ namespace TicTacToe {
 
         // Smell: Feature Envy
         public char Winner() {
-            var tileGroups = _board.AllTileGroups();
-            foreach (var tileGroup in tileGroups) {
+            foreach (var tileGroup in _board.AllTileGroups()) {
                 if (tileGroup.IsTakenBySameSymbol) {
                     return tileGroup.SymbolAt(0);
                 }
