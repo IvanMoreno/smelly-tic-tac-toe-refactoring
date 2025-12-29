@@ -119,14 +119,18 @@ namespace TicTacToe {
             return ' ';
         }
 
-        static bool AreAllTilesEqual(List<Tile> allTiles) {
+        bool AreAllTilesEqual(List<Tile> allTiles) {
             for (var i = 0; i < allTiles.Count - 1; i++) {
-                if (allTiles[i].Symbol != allTiles[i + 1].Symbol) {
+                if (HaveSameValue(allTiles[i], allTiles[i + 1])) {
                     return false;
                 }
             }
 
             return true;
+        }
+
+        bool HaveSameValue(Tile firstTile, Tile secondTile) {
+            return firstTile.Symbol != secondTile.Symbol;
         }
     }
 }
