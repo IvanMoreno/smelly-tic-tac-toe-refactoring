@@ -52,6 +52,13 @@ namespace TicTacToe {
         public List<Tile> ThirdRow() {
             return [TileAt(2, 0), TileAt(2, 1), TileAt(2, 2)];
         }
+
+        public List<List<Tile>> AllRows() {
+            var firstRow = this.FirstRow();
+            var secondRow = this.SecondRow();
+            var thirdRow = this.ThirdRow();
+            return new List<List<Tile>> {firstRow, secondRow, thirdRow};
+        }
     }
 
     // Smell: Large Class.
@@ -90,7 +97,7 @@ namespace TicTacToe {
         // Smell: Divergent change (knows about the size of the board)
         // Smell: Magic Number
         public char Winner() {
-            var allRows = AllRows();
+            var allRows = _board.AllRows();
 
             if (IsWinner(allRows[0])) {
                 return allRows[0].First().Symbol;
@@ -105,14 +112,6 @@ namespace TicTacToe {
             }
 
             return ' ';
-        }
-
-        List<List<Tile>> AllRows() {
-            var firstRow = _board.FirstRow();
-            var secondRow = _board.SecondRow();
-            var thirdRow = _board.ThirdRow();
-            var allRows = new List<List<Tile>> {firstRow, secondRow, thirdRow};
-            return allRows;
         }
 
         bool IsWinner(List<Tile> firstRow) {
