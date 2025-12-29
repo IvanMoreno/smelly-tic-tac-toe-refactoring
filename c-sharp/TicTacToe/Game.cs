@@ -81,7 +81,7 @@ namespace TicTacToe {
         public char Winner() {
             //if the positions in first row are taken
             var firstRow = FirstRow();
-            if (AreTaken(firstRow) && HaveSamePlay(firstRow)) {
+            if (IsWinner(firstRow)) {
                 //if first row is full with same symbol
                 return firstRow.First().Symbol;
             }
@@ -115,6 +115,10 @@ namespace TicTacToe {
             return ' ';
         }
 
+        bool IsWinner(List<Tile> firstRow) {
+            return IsFullyTaken(firstRow) && HaveSamePlay(firstRow);
+        }
+
         List<Tile> FirstRow() {
             var tile0 = _board.TileAt(0, 0);
             var tile1 = _board.TileAt(0, 1);
@@ -122,7 +126,7 @@ namespace TicTacToe {
             return [tile0, tile1, tile2];
         }
 
-        bool AreTaken(List<Tile> allTiles) {
+        bool IsFullyTaken(List<Tile> allTiles) {
             return allTiles.All(tile => tile.IsEmpty);
         }
 
