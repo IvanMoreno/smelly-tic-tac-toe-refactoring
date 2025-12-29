@@ -41,19 +41,19 @@ namespace TicTacToe {
             _plays.Single(tile => tile.X == x && tile.Y == y).Symbol = symbol;
         }
 
-        public List<Tile> FirstRow() {
+        public Row FirstRow() {
             return [TileAt(0, 0), TileAt(0, 1), TileAt(0, 2)];
         }
         
-        public List<Tile> SecondRow() {
+        public Row SecondRow() {
             return [TileAt(1, 0), TileAt(1, 1), TileAt(1, 2)];
         }
         
-        public List<Tile> ThirdRow() {
+        public Row ThirdRow() {
             return [TileAt(2, 0), TileAt(2, 1), TileAt(2, 2)];
         }
 
-        public List<List<Tile>> AllRows() {
+        public List<Row> AllRows() {
             return [FirstRow(), SecondRow(), ThirdRow()];
         }
     }
@@ -115,5 +115,9 @@ namespace TicTacToe {
 
             return true;
         }
+    }
+
+    public class Row : List<Tile> {
+        
     }
 }
