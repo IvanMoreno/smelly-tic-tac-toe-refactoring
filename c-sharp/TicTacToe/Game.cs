@@ -113,12 +113,12 @@ namespace TicTacToe {
         }
 
         public bool IsFullyTaken() {
-            return this.All(tile => tile.IsEmpty);
+            return plays.All(tile => tile.IsEmpty);
         }
 
         public bool HaveSamePlay() {
-            for (var i = 0; i < this.Count - 1; i++) {
-                if (this[i].HaveSamePlay(this[i + 1])) {
+            for (var i = 0; i < plays.Count - 1; i++) {
+                if (plays[i].HaveSamePlay(plays[i + 1])) {
                     return false;
                 }
             }
