@@ -40,6 +40,13 @@ namespace TicTacToe {
         public void AddTileAt(char symbol, int x, int y) {
             _plays.Single(tile => tile.X == x && tile.Y == y).Symbol = symbol;
         }
+
+        public List<Tile> FirstRow() {
+            var tile0 = this.TileAt(0, 0);
+            var tile1 = this.TileAt(0, 1);
+            var tile2 = this.TileAt(0, 2);
+            return [tile0, tile1, tile2];
+        }
     }
 
     // Smell: Large Class.
@@ -80,7 +87,7 @@ namespace TicTacToe {
         // Smell: Divergent change (knows about the size of the board)
         public char Winner() {
             //if the positions in first row are taken
-            var firstRow = FirstRow();
+            var firstRow = _board.FirstRow();
             if (IsWinner(firstRow)) {
                 //if first row is full with same symbol
                 return firstRow.First().Symbol;
@@ -117,13 +124,6 @@ namespace TicTacToe {
 
         bool IsWinner(List<Tile> firstRow) {
             return IsFullyTaken(firstRow) && HaveSamePlay(firstRow);
-        }
-
-        List<Tile> FirstRow() {
-            var tile0 = _board.TileAt(0, 0);
-            var tile1 = _board.TileAt(0, 1);
-            var tile2 = _board.TileAt(0, 2);
-            return [tile0, tile1, tile2];
         }
 
         bool IsFullyTaken(List<Tile> allTiles) {
