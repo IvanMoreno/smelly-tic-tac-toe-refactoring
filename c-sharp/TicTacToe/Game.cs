@@ -15,6 +15,7 @@ namespace TicTacToe {
         public char Symbol { get; set; }
 
         public bool IsEmpty => Symbol != ' ';
+        public bool HaveSamePlay(Tile other) => Symbol != other.Symbol;
     }
 
     // Smell: Divergent change (creates the board and also operates on it)
@@ -121,16 +122,12 @@ namespace TicTacToe {
 
         bool AreAllTilesEqual(List<Tile> allTiles) {
             for (var i = 0; i < allTiles.Count - 1; i++) {
-                if (HaveSameValue(allTiles[i], allTiles[i + 1])) {
+                if (allTiles[i].HaveSamePlay(allTiles[i + 1])) {
                     return false;
                 }
             }
 
             return true;
-        }
-
-        bool HaveSameValue(Tile firstTile, Tile secondTile) {
-            return firstTile.Symbol != secondTile.Symbol;
         }
     }
 }
