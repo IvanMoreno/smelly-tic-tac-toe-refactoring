@@ -96,16 +96,10 @@ namespace TicTacToe {
         public char Winner() {
             var allRows = _board.AllRows();
 
-            if (IsWinner(allRows[0])) {
-                return allRows[0].First().Symbol;
-            }
-
-            if (IsWinner(allRows[1])) {
-                return allRows[1].First().Symbol;
-            }
-            
-            if (IsWinner(allRows[2])) {
-                return allRows[2].First().Symbol;
+            foreach (var row in allRows) {
+                if (IsWinner(row)) {
+                    return row.First().Symbol;
+                }
             }
 
             return ' ';
