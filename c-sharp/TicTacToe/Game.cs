@@ -13,6 +13,10 @@ namespace TicTacToe {
 
         // Smell: Primitive obsession
         public char Symbol { get; set; }
+
+        public bool IsEmpty() {
+            return this.Symbol != ' ';
+        }
     }
 
     // Smell: Divergent change (creates the board and also operates on it)
@@ -80,9 +84,7 @@ namespace TicTacToe {
             var tile0 = _board.TileAt(0, 0);
             var tile1 = _board.TileAt(0, 1);
             var tile2 = _board.TileAt(0, 2);
-            if (IsEmpty(tile0) &&
-                IsEmpty(tile1) &&
-                IsEmpty(tile2)) {
+            if (tile0.IsEmpty() && tile1.IsEmpty() && tile2.IsEmpty()) {
                 //if first row is full with same symbol
                 if (tile0.Symbol ==
                     tile1.Symbol &&
@@ -119,10 +121,6 @@ namespace TicTacToe {
             }
 
             return ' ';
-        }
-
-        static bool IsEmpty(Tile tile0) {
-            return tile0.Symbol != ' ';
         }
     }
 }
