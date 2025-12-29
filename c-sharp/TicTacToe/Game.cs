@@ -41,15 +41,15 @@ namespace TicTacToe {
             _plays.Single(tile => tile.X == x && tile.Y == y).Symbol = symbol;
         }
 
-        public Row FirstRow() {
+        Row FirstRow() {
             return [TileAt(0, 0), TileAt(0, 1), TileAt(0, 2)];
         }
         
-        public Row SecondRow() {
+        Row SecondRow() {
             return [TileAt(1, 0), TileAt(1, 1), TileAt(1, 2)];
         }
         
-        public Row ThirdRow() {
+        Row ThirdRow() {
             return [TileAt(2, 0), TileAt(2, 1), TileAt(2, 2)];
         }
 
