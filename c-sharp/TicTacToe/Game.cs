@@ -44,6 +44,10 @@ namespace TicTacToe {
         public List<Tile> FirstRow() {
             return [TileAt(0, 0), TileAt(0, 1), TileAt(0, 2)];
         }
+        
+        public List<Tile> SecondRow() {
+            return [TileAt(1, 0), TileAt(1, 1), TileAt(1, 2)];
+        }
     }
 
     // Smell: Large Class.
@@ -88,17 +92,9 @@ namespace TicTacToe {
                 return firstRow.First().Symbol;
             }
 
-            //if the positions in first row are taken
-            if (_board.TileAt(1, 0).Symbol != ' ' &&
-                _board.TileAt(1, 1).Symbol != ' ' &&
-                _board.TileAt(1, 2).Symbol != ' ') {
-                //if middle row is full with same symbol
-                if (_board.TileAt(1, 0).Symbol ==
-                    _board.TileAt(1, 1).Symbol &&
-                    _board.TileAt(1, 2).Symbol ==
-                    _board.TileAt(1, 1).Symbol) {
-                    return _board.TileAt(1, 0).Symbol;
-                }
+            var secondRow = _board.SecondRow();
+            if (IsWinner(secondRow)) {
+                return secondRow.First().Symbol;
             }
 
             //if the positions in first row are taken
