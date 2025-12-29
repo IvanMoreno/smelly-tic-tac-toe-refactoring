@@ -54,10 +54,7 @@ namespace TicTacToe {
         }
 
         public List<List<Tile>> AllRows() {
-            var firstRow = this.FirstRow();
-            var secondRow = this.SecondRow();
-            var thirdRow = this.ThirdRow();
-            return new List<List<Tile>> {firstRow, secondRow, thirdRow};
+            return [FirstRow(), SecondRow(), ThirdRow()];
         }
     }
 
