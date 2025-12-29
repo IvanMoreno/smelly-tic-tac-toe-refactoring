@@ -98,26 +98,22 @@ namespace TicTacToe {
             return allRows.First(IsWinner).First().Symbol;
         }
 
-        bool IsWinner(Row firstRow) {
-            return IsFullyTaken(firstRow) && HaveSamePlay(firstRow);
+        bool IsWinner(Row row) => row.IsFullyTaken() && row.HaveSamePlay();
+    }
+
+    public class Row : List<Tile> {
+        public bool IsFullyTaken() {
+            return this.All(tile => tile.IsEmpty);
         }
 
-        bool IsFullyTaken(Row allTiles) {
-            return allTiles.All(tile => tile.IsEmpty);
-        }
-
-        bool HaveSamePlay(Row allTiles) {
-            for (var i = 0; i < allTiles.Count - 1; i++) {
-                if (allTiles[i].HaveSamePlay(allTiles[i + 1])) {
+        public bool HaveSamePlay() {
+            for (var i = 0; i < this.Count - 1; i++) {
+                if (this[i].HaveSamePlay(this[i + 1])) {
                     return false;
                 }
             }
 
             return true;
         }
-    }
-
-    public class Row : List<Tile> {
-        
     }
 }
