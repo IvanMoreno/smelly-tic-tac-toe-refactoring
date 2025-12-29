@@ -87,7 +87,6 @@ namespace TicTacToe {
             _board.AddTileAt(symbol, x, y);
         }
 
-        // Smell: Message chain
         // Smell: Magic Number
         public char Winner() {
             var allRows = _board.AllRows();
