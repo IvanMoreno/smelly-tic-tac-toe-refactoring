@@ -89,9 +89,6 @@ namespace TicTacToe {
 
         // Smell: Feature Envy
         // Smell: Message chain
-        // Smell: Long Method
-        // Smell: Duplicated code
-        // Smell: Divergent change (knows about the size of the board)
         // Smell: Magic Number
         public char Winner() {
             var allRows = _board.AllRows();
