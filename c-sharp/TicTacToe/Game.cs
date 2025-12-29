@@ -86,7 +86,7 @@ namespace TicTacToe {
             var allTiles = new List<Tile> {tile0, tile1, tile2};
             if (allTiles.All(tile => tile.IsEmpty)) {
                 //if first row is full with same symbol
-                if (AreAllTilesEqual(allTiles)) {
+                if (HaveSamePlay(allTiles)) {
                     return tile0.Symbol;
                 }
             }
@@ -120,7 +120,7 @@ namespace TicTacToe {
             return ' ';
         }
 
-        bool AreAllTilesEqual(List<Tile> allTiles) {
+        bool HaveSamePlay(List<Tile> allTiles) {
             for (var i = 0; i < allTiles.Count - 1; i++) {
                 if (allTiles[i].HaveSamePlay(allTiles[i + 1])) {
                     return false;
