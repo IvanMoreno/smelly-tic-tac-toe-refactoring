@@ -87,7 +87,6 @@ namespace TicTacToe {
             _board.AddTileAt(symbol, x, y);
         }
 
-        // Smell: Feature Envy
         // Smell: Message chain
         // Smell: Magic Number
         public char Winner() {
