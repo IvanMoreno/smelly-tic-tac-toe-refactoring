@@ -88,6 +88,7 @@ namespace TicTacToe {
         // Smell: Long Method
         // Smell: Duplicated code
         // Smell: Divergent change (knows about the size of the board)
+        // Smell: Magic Number
         public char Winner() {
             var firstRow = _board.FirstRow();
             if (IsWinner(firstRow)) {
