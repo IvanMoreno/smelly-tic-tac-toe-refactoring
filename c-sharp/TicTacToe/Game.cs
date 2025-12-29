@@ -91,18 +91,20 @@ namespace TicTacToe {
         // Smell: Magic Number
         public char Winner() {
             var firstRow = _board.FirstRow();
-            if (IsWinner(firstRow)) {
-                return firstRow.First().Symbol;
+            var secondRow = _board.SecondRow();
+            var thirdRow = _board.ThirdRow();
+            var allRows = new List<List<Tile>> {firstRow, secondRow, thirdRow};
+            
+            if (IsWinner(allRows[0])) {
+                return allRows[0].First().Symbol;
             }
 
-            var secondRow = _board.SecondRow();
-            if (IsWinner(secondRow)) {
-                return secondRow.First().Symbol;
+            if (IsWinner(allRows[1])) {
+                return allRows[1].First().Symbol;
             }
             
-            var thirdRow = _board.ThirdRow();
-            if (IsWinner(thirdRow)) {
-                return thirdRow.First().Symbol;
+            if (IsWinner(allRows[2])) {
+                return allRows[2].First().Symbol;
             }
 
             return ' ';
