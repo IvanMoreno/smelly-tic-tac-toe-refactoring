@@ -95,7 +95,7 @@ namespace TicTacToe {
             if (!allRows.Any(IsWinner))
                 return ' ';
 
-            return allRows.First(IsWinner).First().Symbol;
+            return allRows.First(IsWinner).SymbolAt(0);
         }
 
         bool IsWinner(Row row) => row.IsFullyTaken() && row.HaveSamePlay();
@@ -125,5 +125,7 @@ namespace TicTacToe {
 
             return true;
         }
+        
+        public char SymbolAt(int index) => plays[index].Symbol;
     }
 }
