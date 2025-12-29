@@ -83,10 +83,8 @@ namespace TicTacToe {
         // Smell: Duplicated code
         // Smell: Divergent change (knows about the size of the board)
         public char Winner() {
-            //if the positions in first row are taken
             var firstRow = _board.FirstRow();
             if (IsWinner(firstRow)) {
-                //if first row is full with same symbol
                 return firstRow.First().Symbol;
             }
 
