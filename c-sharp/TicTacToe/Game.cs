@@ -42,15 +42,15 @@ namespace TicTacToe {
         }
 
         Row FirstRow() {
-            return [TileAt(0, 0), TileAt(0, 1), TileAt(0, 2)];
+            return new([TileAt(0, 0), TileAt(0, 1), TileAt(0, 2)]);
         }
         
         Row SecondRow() {
-            return [TileAt(1, 0), TileAt(1, 1), TileAt(1, 2)];
+            return new([TileAt(1, 0), TileAt(1, 1), TileAt(1, 2)]);
         }
         
         Row ThirdRow() {
-            return [TileAt(2, 0), TileAt(2, 1), TileAt(2, 2)];
+            return new([TileAt(2, 0), TileAt(2, 1), TileAt(2, 2)]);
         }
 
         public List<Row> AllRows() {
