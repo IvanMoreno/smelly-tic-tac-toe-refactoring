@@ -102,6 +102,16 @@ namespace TicTacToe {
     }
 
     public class Row : List<Tile> {
+        readonly List<Tile> plays;
+
+        public Row(List<Tile> plays) {
+            this.plays = plays;
+        }
+
+        public Row() {
+            plays = this;
+        }
+
         public bool IsFullyTaken() {
             return this.All(tile => tile.IsEmpty);
         }
