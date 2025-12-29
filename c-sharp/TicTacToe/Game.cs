@@ -107,10 +107,6 @@ namespace TicTacToe {
             this.plays = plays;
         }
 
-        public Row() {
-            plays = this;
-        }
-
         public bool IsFullyTaken() {
             return plays.All(tile => tile.IsEmpty);
         }
