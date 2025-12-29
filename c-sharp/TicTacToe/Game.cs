@@ -95,14 +95,10 @@ namespace TicTacToe {
         // Smell: Magic Number
         public char Winner() {
             var allRows = _board.AllRows();
+            if (!allRows.Any(IsWinner))
+                return ' ';
 
-            foreach (var row in allRows) {
-                if (IsWinner(row)) {
-                    return row.First().Symbol;
-                }
-            }
-
-            return ' ';
+            return allRows.First(IsWinner).First().Symbol;
         }
 
         bool IsWinner(List<Tile> firstRow) {
