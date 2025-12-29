@@ -83,9 +83,7 @@ namespace TicTacToe {
             _board.AddTileAt(symbol, x, y);
         }
 
-        // Smell: Commented code
         // Smell: Feature Envy
-        // Smell: Complicated boolean expression
         // Smell: Message chain
         // Smell: Long Method
         // Smell: Duplicated code
