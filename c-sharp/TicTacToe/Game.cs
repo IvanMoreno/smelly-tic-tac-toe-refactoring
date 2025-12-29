@@ -77,15 +77,18 @@ namespace TicTacToe {
         // Smell: Divergent change (knows about the size of the board)
         public char Winner() {
             //if the positions in first row are taken
-            if (_board.TileAt(0, 0).Symbol != ' ' &&
-                _board.TileAt(0, 1).Symbol != ' ' &&
-                _board.TileAt(0, 2).Symbol != ' ') {
+            var tile0 = _board.TileAt(0, 0);
+            var tile1 = _board.TileAt(0, 1);
+            var tile2 = _board.TileAt(0, 2);
+            if (tile0.Symbol != ' ' &&
+                tile1.Symbol != ' ' &&
+                tile2.Symbol != ' ') {
                 //if first row is full with same symbol
-                if (_board.TileAt(0, 0).Symbol ==
-                    _board.TileAt(0, 1).Symbol &&
-                    _board.TileAt(0, 2).Symbol ==
-                    _board.TileAt(0, 1).Symbol) {
-                    return _board.TileAt(0, 0).Symbol;
+                if (tile0.Symbol ==
+                    tile1.Symbol &&
+                    tile2.Symbol ==
+                    tile1.Symbol) {
+                    return tile0.Symbol;
                 }
             }
 
