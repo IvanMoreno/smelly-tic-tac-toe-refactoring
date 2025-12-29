@@ -84,10 +84,7 @@ namespace TicTacToe {
             var tile2 = _board.TileAt(0, 2);
             if (tile0.IsEmpty && tile1.IsEmpty && tile2.IsEmpty) {
                 //if first row is full with same symbol
-                if (tile0.Symbol ==
-                    tile1.Symbol &&
-                    tile2.Symbol ==
-                    tile1.Symbol) {
+                if (AreAllTilesEqual(tile0, tile1, tile2)) {
                     return tile0.Symbol;
                 }
             }
@@ -119,6 +116,13 @@ namespace TicTacToe {
             }
 
             return ' ';
+        }
+
+        static bool AreAllTilesEqual(Tile tile0, Tile tile1, Tile tile2) {
+            return tile0.Symbol ==
+                   tile1.Symbol &&
+                   tile2.Symbol ==
+                   tile1.Symbol;
         }
     }
 }
