@@ -100,7 +100,7 @@ namespace TicTacToe {
         bool IsWinner(Row row) => row.IsFullyTaken() && row.HaveSamePlay();
     }
 
-    public class Row : List<Tile> {
+    public class Row {
         readonly List<Tile> plays;
 
         public Row(List<Tile> plays) {
