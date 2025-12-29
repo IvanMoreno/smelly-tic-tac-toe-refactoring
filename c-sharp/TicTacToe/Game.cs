@@ -98,15 +98,15 @@ namespace TicTacToe {
             return allRows.First(IsWinner).First().Symbol;
         }
 
-        bool IsWinner(List<Tile> firstRow) {
+        bool IsWinner(Row firstRow) {
             return IsFullyTaken(firstRow) && HaveSamePlay(firstRow);
         }
 
-        bool IsFullyTaken(List<Tile> allTiles) {
+        bool IsFullyTaken(Row allTiles) {
             return allTiles.All(tile => tile.IsEmpty);
         }
 
-        bool HaveSamePlay(List<Tile> allTiles) {
+        bool HaveSamePlay(Row allTiles) {
             for (var i = 0; i < allTiles.Count - 1; i++) {
                 if (allTiles[i].HaveSamePlay(allTiles[i + 1])) {
                     return false;
