@@ -82,9 +82,10 @@ namespace TicTacToe {
             var tile0 = _board.TileAt(0, 0);
             var tile1 = _board.TileAt(0, 1);
             var tile2 = _board.TileAt(0, 2);
+            var allTiles = new List<Tile> {tile0, tile1, tile2};
             if (tile0.IsEmpty && tile1.IsEmpty && tile2.IsEmpty) {
                 //if first row is full with same symbol
-                if (AreAllTilesEqual(tile0, tile1, tile2)) {
+                if (AreAllTilesEqual(allTiles)) {
                     return tile0.Symbol;
                 }
             }
@@ -118,8 +119,7 @@ namespace TicTacToe {
             return ' ';
         }
 
-        static bool AreAllTilesEqual(Tile tile0, Tile tile1, Tile tile2) {
-            var allTiles = new List<Tile> {tile0, tile1, tile2};
+        static bool AreAllTilesEqual(List<Tile> allTiles) {
             for (var i = 0; i < allTiles.Count - 1; i++) {
                 if (allTiles[i].Symbol != allTiles[i + 1].Symbol) {
                     return false;
