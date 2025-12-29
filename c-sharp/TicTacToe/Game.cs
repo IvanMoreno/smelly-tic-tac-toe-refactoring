@@ -42,10 +42,7 @@ namespace TicTacToe {
         }
 
         public List<Tile> FirstRow() {
-            var tile0 = this.TileAt(0, 0);
-            var tile1 = this.TileAt(0, 1);
-            var tile2 = this.TileAt(0, 2);
-            return [tile0, tile1, tile2];
+            return [TileAt(0, 0), TileAt(0, 1), TileAt(0, 2)];
         }
     }
 
