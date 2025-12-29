@@ -69,12 +69,12 @@ namespace TicTacToe {
         }
 
         // Smell: Commented code
-        // Smell: Complicated boolean expression
         // Smell: Feature Envy
         // Smell: Complicated boolean expression
         // Smell: Message chain
         // Smell: Long Method
         // Smell: Duplicated code
+        // Smell: Divergent change (knows about the size of the board)
         public char Winner() {
             //if the positions in first row are taken
             if (_board.TileAt(0, 0).Symbol != ' ' &&
