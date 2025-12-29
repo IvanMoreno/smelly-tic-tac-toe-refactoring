@@ -80,10 +80,7 @@ namespace TicTacToe {
         // Smell: Divergent change (knows about the size of the board)
         public char Winner() {
             //if the positions in first row are taken
-            var tile0 = _board.TileAt(0, 0);
-            var tile1 = _board.TileAt(0, 1);
-            var tile2 = _board.TileAt(0, 2);
-            var firstRow = new List<Tile> {tile0, tile1, tile2};
+            var firstRow = FirstRow();
             if (AreTaken(firstRow) && HaveSamePlay(firstRow)) {
                 //if first row is full with same symbol
                 return firstRow.First().Symbol;
@@ -116,6 +113,13 @@ namespace TicTacToe {
             }
 
             return ' ';
+        }
+
+        List<Tile> FirstRow() {
+            var tile0 = _board.TileAt(0, 0);
+            var tile1 = _board.TileAt(0, 1);
+            var tile2 = _board.TileAt(0, 2);
+            return [tile0, tile1, tile2];
         }
 
         bool AreTaken(List<Tile> allTiles) {
