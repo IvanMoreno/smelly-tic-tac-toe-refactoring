@@ -84,11 +84,9 @@ namespace TicTacToe {
             var tile1 = _board.TileAt(0, 1);
             var tile2 = _board.TileAt(0, 2);
             var allTiles = new List<Tile> {tile0, tile1, tile2};
-            if (allTiles.All(tile => tile.IsEmpty)) {
+            if (allTiles.All(tile => tile.IsEmpty) && HaveSamePlay(allTiles)) {
                 //if first row is full with same symbol
-                if (HaveSamePlay(allTiles)) {
-                    return tile0.Symbol;
-                }
+                return tile0.Symbol;
             }
 
             //if the positions in first row are taken
